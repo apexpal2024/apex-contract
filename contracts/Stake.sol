@@ -99,22 +99,6 @@ contract Stake is Initializable, OwnableUpgradeable {
         emit Unstaked(user, amount);
     }
 
-    function depositAPXG(uint256 _amount) external onlyOwner {
-        require(_amount > 0, "Stake: Invalid deposit amount");
-        APXG.convert(address(this), _amount);
-    }
-
-    function withdrawAPXG(uint256 _amount) external onlyOwner {
-        require(
-            APXG.balanceOf(address(this)) >= _amount,
-            "Stake: Insufficient APXG balance"
-        );
-        SafeERC20.safeTransfer(APXG, msg.sender, _amount);
-    }
-
-    function setAPXG(address _APXG) external onlyOwner {
-        APXG = IAPXG(_APXG);
-    }
 
     function setUpdater(address _updater) external onlyOwner {
         updater = _updater;
