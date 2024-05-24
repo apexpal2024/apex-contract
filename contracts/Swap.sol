@@ -154,18 +154,10 @@ contract Swap is Initializable, OwnableUpgradeable, ReentrancyGuardUpgradeable {
         feeReceiver = _feeReceiver;
     }
 
-    function setFeeRate(uint256 _feeRate) public onlyOwnerOrUpdater {
-        feeRate = _feeRate;
-    }
-
     function setAutoRefresher(
         address _autoRefresher
     ) public onlyOwnerOrUpdater {
         autoRefresher = _autoRefresher;
-    }
-
-    function setAPXG(address _APXG) public onlyOwner {
-        APXG = IAPXG(_APXG);
     }
 
     function setApxgPrice(address _ApxgPrice) public onlyOwner {

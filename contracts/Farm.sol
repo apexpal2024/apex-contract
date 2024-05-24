@@ -67,9 +67,6 @@ contract Farm is Initializable, OwnableUpgradeable, ReentrancyGuardUpgradeable {
         rootUpdater = _rootUpdater;
     }
 
-    function setAPXA(address _APXA) public onlyOwner {
-        APXA = IAPXA(_APXA);
-    }
 
     function claimAllGas() external onlyOwner {
         BLAST.claimAllGas(address(this), msg.sender);
