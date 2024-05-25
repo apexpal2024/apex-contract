@@ -122,21 +122,6 @@ contract Stake is Initializable, OwnableUpgradeable {
         return stakePeriods.length - 1;
     }
 
-    function updateStakeAmount(uint256 _index, uint256 _amount) external {
-        require(
-            msg.sender == updater || msg.sender == owner(),
-            "Swap: You are not the updater"
-        );
-        stakeAmounts[_index] = _amount;
-    }
-
-    function updateStakePeriod(uint256 _index, uint256 _period) external {
-        require(
-            msg.sender == updater || msg.sender == owner(),
-            "Swap: You are not the updater"
-        );
-        stakePeriods[_index] = _period;
-    }
 
     function claimAllGas() external onlyOwner {
         BLAST.claimAllGas(address(this), msg.sender);
